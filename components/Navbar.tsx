@@ -21,13 +21,15 @@ import {
 } from "../reduxstore/features/cartSlice";
 import { useRouter } from "next/router";
 
-function Navbar(props: { user: { value: any; }; logout: React.MouseEventHandler<HTMLLIElement>; }) {
+function Navbar(props: any) {
   const [displaytoggle, setDisplaytoggle] = useState(false);
+  console.log(props.user.value)
 
   const dispatch = useDispatch();
   const cart = useSelector((state: any) => state.cart);
   const totalValue = useSelector((state: any) => state.cart.totalValue);
   const router = useRouter();
+  const [myuser, setmyuser] = useState(false)
   const [sidebar, setSidebar] = useState(false);
   useEffect(() => {
     
@@ -35,6 +37,10 @@ function Navbar(props: { user: { value: any; }; logout: React.MouseEventHandler<
     if (router.pathname === "/chackout") {
       setSidebar(false);
     }
+    if (localStorage.getItem('myuser')) {
+      setmyuser(true)
+    }
+
      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleRemoveFromCart = (item: any) => {
@@ -91,11 +97,10 @@ function Navbar(props: { user: { value: any; }; logout: React.MouseEventHandler<
         </ul>
 
         <div className="md:mx-3 absolute top-2.5 right-2 flex cursor-pointer">
-          {props.user.value && (
-            <div className="mx-2" onMouseOver={() => setDisplaytoggle(true)} onClick={()=> setDisplaytoggle(!displaytoggle)}>
+          {myuser && <div className="mx-2" onMouseOver={() => setDisplaytoggle(true)} onClick={()=> setDisplaytoggle(!displaytoggle)}>
               <RiAccountPinBoxLine size={25} />
             </div>
-          )}
+          }
           {displaytoggle && (
             <div
               className="rounded-md absolute w-44 z-50 right-14 top-6 bg-white border shadow-2xl"
@@ -119,13 +124,12 @@ function Navbar(props: { user: { value: any; }; logout: React.MouseEventHandler<
               </div>
             </div>
           )}
-          {!props.user.value && (
-            <div className="mx-2">
+          {!myuser && <div className="mx-2">
               <Link href={"/login"}>
                 <div className="hover:text-indigo-500">Login</div>
               </Link>
             </div>
-          )}
+          }
           <div className="mx-2">
             {closeBut ? (
               <IoCloseSharp size={25} onClick={toggelClick} />
