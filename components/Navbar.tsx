@@ -23,7 +23,6 @@ import { useRouter } from "next/router";
 
 function Navbar(props: any) {
   const [displaytoggle, setDisplaytoggle] = useState(false);
-  console.log(props.user.value)
 
   const dispatch = useDispatch();
   const cart = useSelector((state: any) => state.cart);
@@ -40,6 +39,7 @@ function Navbar(props: any) {
     if (localStorage.getItem('myuser')) {
       setmyuser(true)
     }
+    console.log("muusre",myuser)
 
      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -97,7 +97,8 @@ function Navbar(props: any) {
         </ul>
 
         <div className="md:mx-3 absolute top-2.5 right-2 flex cursor-pointer">
-          {myuser && <div className="mx-2" onMouseOver={() => setDisplaytoggle(true)} onClick={()=> setDisplaytoggle(!displaytoggle)}>
+          {myuser &&
+           <div className="mx-2" onMouseOver={() => setDisplaytoggle(true)} onClick={()=> setDisplaytoggle(!displaytoggle)}>
               <RiAccountPinBoxLine size={25} />
             </div>
           }
@@ -124,12 +125,13 @@ function Navbar(props: any) {
               </div>
             </div>
           )}
-          {!myuser && <div className="mx-2">
+          {!myuser && 
+          <div className="mx-2">
               <Link href={"/login"}>
                 <div className="hover:text-indigo-500">Login</div>
               </Link>
             </div>
-          }
+           } 
           <div className="mx-2">
             {closeBut ? (
               <IoCloseSharp size={25} onClick={toggelClick} />
