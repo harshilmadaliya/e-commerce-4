@@ -21,7 +21,7 @@ import {
 } from "../reduxstore/features/cartSlice";
 import { useRouter } from "next/router";
 
-function Navbar(props) {
+function Navbar(props: { user: { value: any; }; logout: React.MouseEventHandler<HTMLLIElement>; }) {
   const [displaytoggle, setDisplaytoggle] = useState(false);
 
   const dispatch = useDispatch();
