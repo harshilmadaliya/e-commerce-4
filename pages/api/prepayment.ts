@@ -18,12 +18,16 @@ const handler = async (req: any, res: any) => {
         res.status(200).json({ success: false, error : "Enter your name" });
         return
       }
-      else if (pincode.length > 6 || pincode.length<6) {
-        res.status(200).json({ success: false, error : "Enate the valid pincode" });
+      else if (pincode.isNaN) {
+        res.status(200).json({ success: false, error : "Enate the pincode in Number" });
         return
       }
       else if (pincode.isNaN) {
-        res.status(200).json({ success: false, error : "Enate the pincode Number" });
+        res.status(200).json({ success: false, error : "Enate the valid phone number" });
+        return
+      }
+      else if (pincode.length > 6 || pincode.length<6) {
+        res.status(200).json({ success: false, error : "Enate the valid pincode" });
         return
       }
       else if (phone.length <9 || phone.length>11) {
