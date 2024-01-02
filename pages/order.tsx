@@ -3,6 +3,7 @@ import Order from "@/models/order";
 var jwt = require("jsonwebtoken");
 import mongoose from "mongoose";
 import Image from "next/image";
+import Head from "next/head";
 // import { dbConnect } from "@/middleware/mongooes";
 
 function MyOrder({ orders }) {
@@ -10,6 +11,9 @@ function MyOrder({ orders }) {
  
   return (
       <section className="text-gray-600 body-font overflow-hidden min-h-screen">
+        <Head>
+          <title>Order Details</title>
+        </Head>
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <div className="lg:w-2/3 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">

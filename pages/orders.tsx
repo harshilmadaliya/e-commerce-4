@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 
 
 
@@ -52,7 +53,11 @@ function Orders() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[80vh]">
+    <>
+    <Head>
+      <title>Your All Orders</title>
+    </Head>
+    <div className="flex justify-center items-center min-h-[80vh]">  
       <div className="h-auto w-8/12 ">
         <p className="font-semibold text-center text-lg my-3">Your All Orders</p>
         <div className="flex flex-col">
@@ -104,7 +109,7 @@ function Orders() {
                             {item.name}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                            {item.amount}
+                          ₹{item.amount}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                             {item.address}
@@ -133,6 +138,7 @@ function Orders() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

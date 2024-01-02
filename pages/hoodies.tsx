@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addTocart } from "../reduxstore/features/cartSlice";
 // import { dbConnect } from "@/middleware/mongooes";
+import Head from "next/head";
 
 import connectDb from '@/middleware/mongoose'
 import Product from "@/models/product";
@@ -17,6 +18,9 @@ function Hoodies({ product }) {
   };
   return (
     <div>
+      <Head>
+        <title>Hoodies</title>
+      </Head>
       <section className="text-gray-400 body-font min-h-screen">
         <div className="container px-5 my-24 mx-auto">
           <div className="flex flex-wrap -m-3">
@@ -43,7 +47,7 @@ function Hoodies({ product }) {
                     <h2 className="text-gray-500 title-font text-lg font-medium">
                       {product[item].title}
                     </h2>
-                    <p className="mt-1">${product[item].price}</p>
+                    <p className="mt-1">₹{product[item].price}</p>
                   </div>
                 </div>
               </Link>

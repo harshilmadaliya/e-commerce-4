@@ -8,6 +8,7 @@ import { addTocart } from "../reduxstore/features/cartSlice";
 // import Product from "@/models/product";
 import Product from "@/models/product";
 import connectDb from "@/middleware/mongoose";
+import Head from "next/head";
 
 function Tshirts({ product }) {
   const dispatch = useDispatch();
@@ -17,6 +18,9 @@ function Tshirts({ product }) {
   };
   return (
       <section className="text-gray-400 body-font min-h-screen">
+        <Head>
+          <title>T-shirts</title>
+        </Head>
         <div className="container px-5 my-24 mx-auto">
           <div className="flex flex-wrap -m-3">
             {Object.keys(product).map((item: any) => (
@@ -42,7 +46,7 @@ function Tshirts({ product }) {
                     <h2 className="text-gray-500 title-font text-lg font-medium">
                       {product[item].title}
                     </h2>
-                    <p className="mt-1">${product[item].price}</p>
+                    <p className="mt-1">₹{product[item].price}</p>
                   </div>
                 </div>
               </Link>

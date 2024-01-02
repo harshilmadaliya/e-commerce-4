@@ -16,6 +16,7 @@ import {
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Head from "next/head";
 
 function Chackout(props: any) {
   const router = useRouter();
@@ -106,6 +107,9 @@ function Chackout(props: any) {
   };
   return (
     <>
+    <Head>
+      <title>Chackout Page</title>
+    </Head>
       <div>
         <ToastContainer
           position="top-left"
@@ -283,7 +287,7 @@ function Chackout(props: any) {
                   <input
                     value={allInfo.pincode}
                     onChange={onchange}
-                    type="text"
+                    type="number"
                     name="pincode"
                     id="pincode"
                     autoComplete="postal-code"

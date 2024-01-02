@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Head from "next/head";
 
 var jwt = require("jsonwebtoken");
 
@@ -69,6 +70,9 @@ function Login() {
   };
   return (
     <div className="mx-4 min-h-screen">
+      <Head>
+        <title>Login to E-Commerce</title>
+      </Head>
       <ToastContainer
         position="top-center"
         autoClose={2000}

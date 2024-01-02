@@ -6,6 +6,7 @@ import { addTocart } from "../../reduxstore/features/cartSlice";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Head from "next/head";
 // import { dbConnect } from "@/middleware/mongooes";
 
 export default function Page({ product, variant }) {
@@ -31,6 +32,9 @@ export default function Page({ product, variant }) {
 
   return (
     <>
+    <Head>
+      <title>Product Details</title>
+    </Head>
       <section className="text-gray-600 body-font overflow-hidden min-h-screen">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex justify-evenly flex-wrap">
@@ -222,7 +226,7 @@ export default function Page({ product, variant }) {
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                  ${product.price}
+                ₹{product.price}
                 </span>
                 <Link href={"/chackout"} className="ml-auto">
                   <button

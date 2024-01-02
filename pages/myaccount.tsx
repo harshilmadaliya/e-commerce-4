@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { VscAccount } from "react-icons/vsc";
+import Head from "next/head";
 
 function Myaccount(props) {
   const router = useRouter();
@@ -32,6 +33,9 @@ function Myaccount(props) {
 
   return (
     <div className="flex justify-center min-h-screen">
+      <Head>
+        <title>Account</title>
+      </Head>
       <div className="mx-10 my-16 rounded-md shadow-xl shadow-gray-300 bg-slate-100 md:w-2/3">
         <div className="flex p-3 justify-between md:px-10 md:py-6">
           <div>

@@ -7,6 +7,7 @@ import {  useRouter } from "next/router";
 import { useEffect,useState } from "react";
 import { Provider } from "react-redux";
 import LoadingBar from 'react-top-loading-bar'
+import Head from "next/head";
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -50,6 +51,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+    <Head>
+      <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    </Head>
     <LoadingBar
         color='#f11946'
         progress={progress}
