@@ -22,7 +22,7 @@ const handler = async (req: any, res: any) => {
         res.status(200).json({ success: false, error : "Enate the pincode in Number" });
         return
       }
-      else if (pincode.isNaN) {
+      else if (phone.isNaN) {
         res.status(200).json({ success: false, error : "Enate the valid phone number" });
         return
       }
