@@ -56,7 +56,7 @@ function Tshirts({ product }) {
 export async function getServerSideProps(context: any) {
   // const con = await dbConnect()
   if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGODB_URI);
     console.log("connected mongodb");
   }
 

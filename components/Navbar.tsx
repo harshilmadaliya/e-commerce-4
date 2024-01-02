@@ -145,9 +145,9 @@ function Navbar(props: any) {
       <div
         ref={ref}
         className={`Cart absolute bg-white rounded-md shadow-lg  top-0 ${
-          sidebar ? "right-0" : "-right-96"
+          sidebar ? "right-0" : "hidden"
         } border h-auto w-full sm:w-96 mt-12 z-20 p-3 transition-all ${
-          !sidebar && "overflow-hidden"
+          ''
         }`}
       >
         <p className="py-2 font-semibold">Shopping cart</p>
